@@ -31,7 +31,7 @@ int main()
 {
 	int x_i = 2;
 	float x_f = 2.0;
-	void* x_v;
+	void* x_v = NULL;
 	show_int(x_i);
 	show_float(x_f);
 	show_pointer(x_v);
