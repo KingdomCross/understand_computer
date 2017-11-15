@@ -24,18 +24,29 @@ void show_float(float x)
 
 void show_pointer(void *x)
 {
-	show_bytes((byte_pointer) &x, sizeof(void));
+	show_bytes((byte_pointer) &x, sizeof(void*));
 }
 
-int main()
-{
-	int x_i = 2;
-	float x_f = 2.0;
-	void* x_v = NULL;
-	show_int(x_i);
-	show_float(x_f);
-	show_pointer(x_v);
+void test_show_bytes(int val)
+{	
+	int ival = val;
+	float fval = (float) ival;
+	int *pval = &ival;
+	show_int(ival);
+	show_float(fval);
+	show_pointer(pval);
 	
+}
+
+	
+int main(int argc, char* argv[])
+{
+	
+	if(argc !=2)
+		printf("the parameter must be one!\n");
+	else
+		test_show_bytes(atoi(argv[1]));
+		
 	return 0;
 
 }
