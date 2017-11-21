@@ -21,8 +21,13 @@ int main()
 	void (*addvec)(int *, int *, int *, int);
 	char *error;
 	
-	/*Dynamically load the shared library containing addvec() */
-	
+	/* attention the return error of the
+	 * dlopen(...) & dlsym(...) & dlclose(..)
+	 * 
+	 * the follow three mothods are equivalent!!!
+	 */
+
+	/* Dynamically load the shared library containing addvec() */
 	handle = dlopen("./libvector.so", RTLD_LAZY);
 	if(!handle)
 	{
@@ -38,7 +43,7 @@ int main()
 		exit(1);
 	}
 
-	/*Now we can call addvec() just like any other function */
+	/* Now we can call addvec() just like any other function */
 	addvec(x, y, z, 2);
 	printf("z = [%d %d]\n", z[0], z[1]);
 
