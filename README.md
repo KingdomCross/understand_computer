@@ -1,5 +1,5 @@
 # understand_computer
-the folder will contain the source code about the book <deep understand computer>
+the folder will contain the source code about all  book that I learn the computer.
 
 the all code just I learn the book and the git&github, so maybe it make people confusing, so do not care the detail.
 
