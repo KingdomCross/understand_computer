@@ -2,6 +2,22 @@ import sys
 import string
 import math
 
+'''
+
+function : insertion_sort(data)
+parameter: data, can be any type
+putput   : the order of data from small to big
+
+function : merge_sort(data)
+parameter: data, just int or double or float type
+putput   : the order of data from small to big
+
+function : heap_sort(data)
+parameter: data, just int or double or float type
+putput   : the order of data from small to big
+
+'''
+
 
 #----------------- insertion_sort -----------------#
 
@@ -45,12 +61,16 @@ def merge(data, left, mid, right):
 			j += 1
 	#print(data)	
 
-def merge_sort(data, left, right):
+def merge_sort_mid(data, left, right):
 	if left < right:
 		mid = ( left + right)//2
-		merge_sort(data, left, mid)
-		merge_sort(data, mid + 1, right)
+		merge_sort_mid(data, left, mid)
+		merge_sort_mid(data, mid + 1, right)
 		merge(data, left, mid, right)
+	return data
+
+def merge_sort(data):
+	merge_sort_mid(data, 0, len(data)-1)
 	return data
 
 #-----------------   merge_sort   -----------------#
@@ -131,12 +151,12 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
-			print(merge_sort(data2, 0, len(data2) - 1))
+			print(merge_sort(data2))
 		fin.close()
 	except:
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
-		print(merge_sort(data, 0, len(data) - 1))
+		print(merge_sort(data))
 
 	print('XXXXXXXXXXXXXXXXXXXXX<heap_sort>XXXXXXXXXXXXXXXXXXXX')
 	try:
