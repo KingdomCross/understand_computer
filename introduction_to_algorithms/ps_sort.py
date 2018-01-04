@@ -16,6 +16,11 @@ function : heap_sort(data)
 parameter: data, just int or double or float type
 putput   : the order of data from small to big
 
+function : quick_sort(data)
+parameter: data, just int or double or float type
+putput   : the order of data from small to big
+
+
 '''
 
 
@@ -125,6 +130,42 @@ def heap_sort(data):
 
 #-----------------   heap_sort    -----------------#
 
+
+
+#-----------------   quick_sort   -----------------#
+
+def partition(data, left, right):
+	temp = data[right]
+	i = left -1
+	for j in range(left, right):
+		if data[j] <= temp:
+			i += 1
+			data[i], data[j] = data[j], data[i]
+	data[i+1], data[right] = data[right], data[i+1]
+	return (i + 1)
+
+def quick_sort_mid(data, left, right):
+	if left < right:
+		mid = partition(data, left, right)
+		quick_sort_mid(data, left, mid -1 )
+		quick_sort_mid(data, mid + 1, right)
+
+def quick_sort(data):
+	quick_sort_mid(data, 0, len(data)-1)
+	return data
+
+
+
+
+
+
+
+#-----------------   quick_sort   -----------------#
+
+
+
+#********************   main   ********************#
+
 if __name__ == '__main__':
 	print('XXXXXXXXXXXXXXXXX<insertion_sort>XXXXXXXXXXXXXXXXX')
 	try:
@@ -173,4 +214,18 @@ if __name__ == '__main__':
 		data = [1,3,2,4,5]
 		print(heap_sort(data))
 
-		
+	print('XXXXXXXXXXXXXXXXXXXXX<quick_sort>XXXXXXXXXXXXXXXXXXXX')
+	try:
+		if sys.argv[1]:
+			data = ''
+			fin = open(sys.argv[1], 'r')
+			for data_in in fin:
+				data += data_in
+			data2 = [int(num) for num in data.split()]
+			print(quick_sort(data2))
+		fin.close()
+	except:
+		print('No input file, select default input data')
+		data = [1,3,2,4,5]
+		print(quick_sort(data))
+
