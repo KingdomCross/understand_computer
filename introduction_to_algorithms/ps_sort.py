@@ -56,6 +56,55 @@ def merge_sort(data, left, right):
 #-----------------   merge_sort   -----------------#
 
 
+#-----------------   heap_sort    -----------------#
+
+# the property of heap
+
+def parent(var):
+	return var//2
+
+def left_child(var):
+	return 2*var + 1
+
+def right_child(var):
+	return 2*var +2
+
+# max heap
+def max_heapify(data, var, heap_size):
+	left = left_child(var)
+	right = right_child(var)
+	if left < heap_size and data[left] > data[var]:
+		largest = left
+	else:
+		largest = var
+	if right < heap_size and data[right] > data[largest]:
+		largest = right
+	if largest != var:
+		data[largest], data[var] = data[var], data[largest]
+		max_heapify(data, largest, heap_size)
+
+# build max heap
+def build_max_heap(data):
+	heap_size = data_length = len(data)
+	for i in range(data_length//2, -1, -1):
+		max_heapify(data, i, heap_size)
+
+	return data
+
+# heap sort
+def heap_sort(data):
+	build_max_heap(data)
+	heap_size = data_length = len(data)
+	for i in range(data_length-1, 0, -1):
+		data[0], data[i] = data[i], data[0]
+		heap_size -= 1
+		max_heapify(data, 0, heap_size)
+	return data
+
+
+
+#-----------------   heap_sort    -----------------#
+
 if __name__ == '__main__':
 	print('XXXXXXXXXXXXXXXXX<insertion_sort>XXXXXXXXXXXXXXXXX')
 	try:
@@ -88,5 +137,20 @@ if __name__ == '__main__':
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
 		print(merge_sort(data, 0, len(data) - 1))
-	
+
+	print('XXXXXXXXXXXXXXXXXXXXX<heap_sort>XXXXXXXXXXXXXXXXXXXX')
+	try:
+		if sys.argv[1]:
+			data = ''
+			fin = open(sys.argv[1], 'r')
+			for data_in in fin:
+				data += data_in
+			data2 = [int(num) for num in data.split()]
+			print(heap_sort(data2))
+		fin.close()
+	except:
+		print('No input file, select default input data')
+		data = [1,3,2,4,5]
+		print(heap_sort(data))
+
 		
