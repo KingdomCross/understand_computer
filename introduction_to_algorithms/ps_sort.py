@@ -6,20 +6,25 @@ import math
 
 function : insertion_sort(data)
 parameter: data, can be any type
-putput   : the order of data from small to big
+output   : the order of data from small to big
 
 function : merge_sort(data)
-parameter: data, just int or double or float type
-putput   : the order of data from small to big
+parameter: data, just int or long or double or float type
+output   : the order of data from small to big
 
 function : heap_sort(data)
 parameter: data, just int or double or float type
-putput   : the order of data from small to big
+output   : the order of data from small to big
 
 function : quick_sort(data)
-parameter: data, just int or double or float type
-putput   : the order of data from small to big
+parameter: data, just int or long or double or float type
+output   : the order of data from small to big
 
+function : counting_sort(data, k)
+parameter: data, just int or long type
+		   k, express that the number in data are less than k
+		   and more than 0
+output   : the order of data from small to big
 
 '''
 
@@ -164,13 +169,32 @@ def quick_sort(data):
 	return data
 
 
-
-
-
-
-
 #-----------------   quick_sort   -----------------#
 
+
+#----------------- counting_sort -----------------#
+
+# the velocity of the program seem to slow a lot 
+# than previous programs
+
+def counting_sort(data, k):
+	import numpy as np
+	data_temp   = [int(num) for num in np.zeros(k+1)]
+	data_output = [int(num) for num in np.zeros(len(data))]
+
+	for j in range(1, len(data)):
+		data_temp[data[j]] += 1
+
+	for i in range(1, k + 1):
+		data_temp[i] += data_temp[i - 1] 
+
+	for j in range(len(data)-1, -1, -1):
+		data_output[data_temp[data[j]]] = data[j]
+		data_temp[data[j]] = data_temp[data[j]] - 1
+
+	return data_output
+
+#----------------- counting_sort -----------------#
 
 
 #********************   main   ********************#
@@ -237,4 +261,21 @@ if __name__ == '__main__':
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
 		print(quick_sort(data))
+
+	print('XXXXXXXXXXXXXXXXXXX<counting_sort>XXXXXXXXXXXXXXXXXXX')
+	import numpy as np
+	try:
+		if sys.argv[1]:
+			data = ''
+			fin = open(sys.argv[1], 'r')
+			for data_in in fin:
+				data += data_in
+			data2 = [int(num) for num in data.split()]
+			print(counting_sort(data2, np.max(data2)))
+		fin.close()
+	except:
+		print('No input file, select default input data')
+		data = [1,3,2,4,5]
+		print(counting_sort(data, np.max(data)))
+
 
