@@ -134,6 +134,7 @@ def heap_sort(data):
 
 #-----------------   quick_sort   -----------------#
 
+# select pivot element (主元)
 def partition(data, left, right):
 	temp = data[right]
 	i = left -1
@@ -144,6 +145,14 @@ def partition(data, left, right):
 	data[i+1], data[right] = data[right], data[i+1]
 	return (i + 1)
 
+# the random version of partition()
+def randomized_partition(data, left, right):
+	import random
+	index = random.randint(left, right)
+	data[index], data[right] = data[right], data[index]
+	return partition(data, left, right)
+
+# not use the randomized_partition function
 def quick_sort_mid(data, left, right):
 	if left < right:
 		mid = partition(data, left, right)
