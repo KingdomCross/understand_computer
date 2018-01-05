@@ -210,7 +210,10 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
+
+			insertion_sort(data2)
 			# print(insertion_sort(data2))
+
 		fin.close()
 	except:
 		print('No input file, select default input data')
@@ -229,7 +232,10 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
+
+			merge_sort(data2)
 			# print(merge_sort(data2))
+
 		fin.close()
 	except:
 		print('No input file, select default input data')
@@ -246,7 +252,10 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
+
+			heap_sort(data2)
 			# print(heap_sort(data2))
+
 		fin.close()
 	except:
 		print('No input file, select default input data')
@@ -263,7 +272,10 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
+
+			quick_sort(data2)
 			# print(quick_sort(data2))
+
 		fin.close()
 	except:
 		print('No input file, select default input data')
@@ -281,6 +293,8 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
+
+			counting_sort(data2, np.max(data2))
 			# print(counting_sort(data2, np.max(data2)))
 		fin.close()
 	except:
