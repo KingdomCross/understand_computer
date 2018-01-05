@@ -200,7 +200,9 @@ def counting_sort(data, k):
 #********************   main   ********************#
 
 if __name__ == '__main__':
+	import time
 	print('XXXXXXXXXXXXXXXXX<insertion_sort>XXXXXXXXXXXXXXXXX')
+	now = time.time()
 	try:
 		if sys.argv[1]:
 			data = ''
@@ -208,7 +210,7 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
-			print(insertion_sort(data2))
+			# print(insertion_sort(data2))
 		fin.close()
 	except:
 		print('No input file, select default input data')
@@ -216,8 +218,10 @@ if __name__ == '__main__':
 		# data = ['2', '1', '3']
 		data = ['you', 'are', 'girl']
 		print(insertion_sort(data))
+	print('spend time:', time.time() - now)
 
-	print('XXXXXXXXXXXXXXXXXXXX<merge_sort>XXXXXXXXXXXXXXXXXXX')	
+	print('XXXXXXXXXXXXXXXXXXXX<merge_sort>XXXXXXXXXXXXXXXXXXX')
+	now = time.time()	
 	try:
 		if sys.argv[1]:
 			data = ''
@@ -225,14 +229,16 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
-			print(merge_sort(data2))
+			# print(merge_sort(data2))
 		fin.close()
 	except:
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
 		print(merge_sort(data))
+	print('spend time:', time.time() - now)
 
 	print('XXXXXXXXXXXXXXXXXXXXX<heap_sort>XXXXXXXXXXXXXXXXXXXX')
+	now = time.time()
 	try:
 		if sys.argv[1]:
 			data = ''
@@ -240,14 +246,16 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
-			print(heap_sort(data2))
+			# print(heap_sort(data2))
 		fin.close()
 	except:
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
 		print(heap_sort(data))
+	print('spend time:', time.time() - now)
 
 	print('XXXXXXXXXXXXXXXXXXXXX<quick_sort>XXXXXXXXXXXXXXXXXXXX')
+	now = time.time()
 	try:
 		if sys.argv[1]:
 			data = ''
@@ -255,15 +263,17 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
-			print(quick_sort(data2))
+			# print(quick_sort(data2))
 		fin.close()
 	except:
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
 		print(quick_sort(data))
+	print('spend time:', time.time() - now)
 
 	print('XXXXXXXXXXXXXXXXXXX<counting_sort>XXXXXXXXXXXXXXXXXXX')
 	import numpy as np
+	now = time.time()
 	try:
 		if sys.argv[1]:
 			data = ''
@@ -271,11 +281,12 @@ if __name__ == '__main__':
 			for data_in in fin:
 				data += data_in
 			data2 = [int(num) for num in data.split()]
-			print(counting_sort(data2, np.max(data2)))
+			# print(counting_sort(data2, np.max(data2)))
 		fin.close()
 	except:
 		print('No input file, select default input data')
 		data = [1,3,2,4,5]
 		print(counting_sort(data, np.max(data)))
+	print('spend time:', time.time() - now)
 
 
