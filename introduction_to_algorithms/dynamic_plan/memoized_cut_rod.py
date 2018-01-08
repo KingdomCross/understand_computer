@@ -35,6 +35,28 @@ def bottom_up_cut_rod(price , length):
 		array[j] = temp
 	return array[length]
 
+# can return the length of cut of optimal
+def extended_bottom_up_cut_rod(price , length):
+	array = []
+	trace = []
+	for i in range(0, length + 1):
+		array.append(0)
+		trace.append(0)
+	
+	for j in range(1, length + 1):
+		temp = -math.inf
+		for i in range(1, j + 1):
+			if temp < price[i] + array[j - i]:
+				temp = price[i] + array[j - i]
+				trace[j] = i
+		array[j] = temp
+	return array, trace
+
+def print_cut_rod_solution(price, length):
+	array, trace = extended_bottom_up_cut_rod(price, length)
+	while length > 0:
+		print(trace[length])
+		length -= trace[length]
 
 #********************   main   ********************#
 
@@ -45,9 +67,18 @@ if __name__ == '__main__':
 
 	now = time.time()
 	optimal = memoized_cut_rod(price, 20)
-	print(optimal)
 	print('optimal value', optimal, 'spend time', time.time() - now)
 
 	now = time.time()
 	optimal = bottom_up_cut_rod(price, 20)
 	print('optimal value', optimal, 'spend time', time.time() - now)
+
+	now = time.time()
+	print('the optimal cut is')
+	print_cut_rod_solution(price, 4)
+	print('spend time', time.time() - now)
+
+
+
+
+
