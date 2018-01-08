@@ -32,7 +32,7 @@ def bottom_up_cut_rod(price , length):
 		temp = -math.inf
 		for i in range(1, j + 1):
 			temp = max(temp, price[i] + array[j - i])
-	array[j] = temp
+		array[j] = temp
 	return array[length]
 
 
