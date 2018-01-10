@@ -20,6 +20,16 @@ def recursive_activity_selector(s, f, k, n):
 	else:
 		return []
 
+def greedy_activity_selector(s, f):
+	n = len(s)
+	A = [1]
+	k = 1
+	# range(m, n) express [m, n)
+	for m in range(2, n):
+		if s[m] >= f[k]:
+			A += [m]
+			k = m
+	return A
 
 
 #********************   main   ********************#
@@ -33,4 +43,4 @@ if __name__ == '__main__':
 	k = 0
 	n = len(s) - 1
 	print(recursive_activity_selector(s, f, k, n))
-
+	print(greedy_activity_selector(s, f))
