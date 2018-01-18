@@ -56,7 +56,7 @@ def print_path(graph, source, final):
 
 
 if __name__ == '__main__':
-	 # 这是存储节点，后面讲用类初始化
+	# 这是存储节点，后面讲用类初始化
 	graph = []
 	# 这是节点之间的映射关系，这是无向图
 	graph_map = [ [0, 1, 4], [1, 0, 4, 2, 3], 
