@@ -1,10 +1,15 @@
 #!python3
 '''
-shen度优先搜索算法
+深度优先搜索算法
 '''
-
+#全局访问时间
 time = 0
 
+
+# color：节点颜色，有white，gray，black三种选择
+# deep：#第一次访问到该节点的时间
+# final：最后一次访问到该节点的时间
+# pi：该节点的前驱列表
 class DFS_node:
 	def __init__(self, color = 'white', deep = 0, final = 0, pi = []):
 		self.color = color
@@ -38,7 +43,9 @@ def DFS_visit(graph, u):
 
 
 if __name__ == '__main__':
+	# 这是图节点，后面讲用类初始化
 	graph_list = ['u', 'v', 'w', 'x', 'y', 'z']
+	# 这是节点之间的映射关系，这是有向图
 	graph_map = {'u':['v', 'x'], 
 				 'v':['y'], 
 				 'w':['z', 'y'], 
