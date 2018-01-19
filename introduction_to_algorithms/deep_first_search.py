@@ -61,7 +61,7 @@ def topological_sort(topo_graph, topo_graph_map):
 	for key in topo_graph_list:
 		sort_list += [topo_graph[key].final]
 	
-	import ps_sort
+	import ps_sort # 这是我自己写的插入排序
 	sort_list = ps_sort.insertion_sort(sort_list)
 	# print(sort_list)
 	for v in sort_list:
