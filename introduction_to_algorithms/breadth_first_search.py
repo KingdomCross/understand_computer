@@ -1,13 +1,27 @@
+#!python3
+'''
+广度优先搜索算法
+'''
+
 import math
 from queue import Queue
 
+# 广度优先树的类
+# data：该节点的数据，也是节点的次序
+# color：节点颜色，有white，gray，black三种选择
+# deep：该节点到源节点的深度
+# pi：该节点的前驱列表
+
 class BFS_node:
 	def __init__(self, data = 0, color = 'white', deep = 0, pi = []):
-		self.data = data
+		self.data = data 
 		self.color = color
 		self.deep = deep
 		self.pi = pi
 
+# 广度优先树建立过程
+# graph_source：选定的源节点
+# graph_map：节点连接映射表
 
 def BFS(graph, graph_map, graph_source):
 
@@ -27,7 +41,7 @@ def BFS(graph, graph_map, graph_source):
 
 		graph[u.data].color = 'black'
 	
-
+# 打印某个节点到源节点的路径
 def print_path(graph, source, final):
 
 	if final.data == source.data:
@@ -42,7 +56,9 @@ def print_path(graph, source, final):
 
 
 if __name__ == '__main__':
+	# 这是存储节点，后面讲用类初始化
 	graph = []
+	# 这是节点之间的映射关系，这是无向图
 	graph_map = [ [0, 1, 4], [1, 0, 4, 2, 3], 
 				  [2, 1, 3, 5], [3, 1, 4, 2], 
 				  [4, 3, 0, 2], [5], [6, 7],
@@ -50,7 +66,7 @@ if __name__ == '__main__':
 
 	
 	for x in range(8):
-		graph.append(BFS_node(data = x, pi = [x]))
+		graph.append(BFS_node(data = x, pi = [x])) # 一定要对pi列表进行不同的初始化，否则这几个pi都会指向一个地址
 
 	BFS(graph, graph_map, graph[0])
 	
@@ -58,25 +74,7 @@ if __name__ == '__main__':
 	
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 队列的基本用法
 
 '''
 from queue import Queue #LILO队列
