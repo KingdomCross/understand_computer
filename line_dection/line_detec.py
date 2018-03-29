@@ -4,8 +4,8 @@ import matplotlib.pyplot as pl
 import skimage.transform as st
 from skimage import feature
 
-# PATH = './data/C0.400000'
-PATH = './data/obj.txt'
+PATH = './data/C0.400000'
+# PATH = './data/obj.txt'
 data = np.loadtxt(PATH)
 # print(data)
 
@@ -21,9 +21,9 @@ for i in range(0, LEN):
 	pic[y][x] = 255
 	# print(x,y)
 	XY[i,0], XY[i,1] = x, y
-
+print(pic)
 # pic = feature.canny(pic, sigma=2, low_threshold=1, high_threshold=25)
-lines = st.probabilistic_hough_line(pic, threshold = 5, line_length= 20,line_gap = 10)
+lines = st.probabilistic_hough_line(pic, threshold = 12, line_length= 20,line_gap = 10)
 # print(lines)
 
 for line in lines:
