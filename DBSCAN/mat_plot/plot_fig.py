@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
- 
+
+''' 
 plt.figure(1) 
 plt.figure(2) 
 ax1 = plt.subplot(211)
@@ -20,8 +21,10 @@ plt.ylabel('exp')
 plt.legend('12345') 
 plt.show()
 
+'''
 
-plt.figure(3)
+
+plt.figure(1)
 #fd = open('../DBSACN_cluster/cluster_1.data')
 #try:
 #	all_the_content = fd.read()
@@ -30,13 +33,11 @@ plt.figure(3)
 
 # Use numpy to load the data contained in the file
 # '*.txt' into a 2-D array called data
-data1 = np.loadtxt('../DBSCAN_cluster/cluster_1.txt')
-data2 = np.loadtxt('../DBSCAN_cluster/cluster_2.txt')
+data1 = np.loadtxt('/home/dean/projects/understand_computer/DBSCAN/TEST_data/C0.400000')
+# data2 = np.loadtxt('../DBSCAN_cluster/cluster_2.txt')
 
 # plot the first column as x, and second column as y
-plt.plot(data1[:, 0], data1[:, 1],'ro',
-		data2[:, 0], data2[:, 1],'g*',
-		)
+plt.plot(data1[:, 0], data1[:, 1],'r.')
 
 #plt.xlim(0.0, 10.)
 
