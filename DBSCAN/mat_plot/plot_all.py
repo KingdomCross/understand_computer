@@ -15,6 +15,10 @@ PATH_pre = '../cluster_'
 for i in range(1,LEN):
 	PATH = PATH_pre + str(i) +'.txt'
 	data = np.loadtxt(PATH)
+	size_data = len(data[:,0])
+	xc = sum(data[:,0])/size_data
+	yc = sum(data[:,1])/size_data
+	pl.plot(xc,yc,'kx')
 	pl.plot(data[:,0],data[:,1],'r.')
 
 
