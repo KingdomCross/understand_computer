@@ -9,18 +9,21 @@ import matplotlib.pyplot as pl
 
 # Use numpy to load the data contained in the file
 # '*.txt' into a 2-D array called data
-LEN = 21
+LEN = len(os.listdir('../')) - 2
 PATH_pre = '../cluster_'
 
 for i in range(1,LEN):
 	PATH = PATH_pre + str(i) +'.txt'
-	data = np.loadtxt(PATH)
-	size_data = len(data[:,0])
-	xc = sum(data[:,0])/size_data
-	yc = sum(data[:,1])/size_data
-	pl.plot(xc,yc,'kx')
-	pl.plot(data[:,0],data[:,1],'r.')
-
+	try:
+		data = np.loadtxt(PATH)
+		size_data = len(data[:,0])
+		xc = sum(data[:,0])/size_data
+		yc = sum(data[:,1])/size_data
+		pl.plot(xc,yc,'kx', linewidth='2')
+		pl.plot(data[:,0],data[:,1],'r.',linewidth='0.3')
+	except:
+		print('Error')
+		
 
 # plot the first column as x, and second column as y
 #pl.xlim(0.0, 10.)
