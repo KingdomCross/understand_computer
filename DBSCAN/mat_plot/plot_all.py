@@ -11,8 +11,8 @@ import os
 
 # Use numpy to load the data contained in the file
 # '*.txt' into a 2-D array called data
-LEN = len(os.listdir('../')) - 2
-PATH_pre = '../cluster_'
+LEN = len(os.listdir('../DBSCAN_cluster')) - 2
+PATH_pre = '../DBSCAN_cluster/cluster_'
 
 for i in range(1,LEN):
 	PATH = PATH_pre + str(i) +'.txt'
@@ -21,7 +21,8 @@ for i in range(1,LEN):
 		size_data = len(data[:,0])
 		xc = sum(data[:,0])/size_data
 		yc = sum(data[:,1])/size_data
-		pl.plot(xc,yc,'kx', linewidth='2')
+		# pl.plot(xc,yc,'kx', linewidth='2')
+		print(xc,yc)
 		pl.plot(data[:,0],data[:,1],'r.',linewidth='0.3')
 	except:
 		print('Error')
