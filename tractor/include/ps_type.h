@@ -1,6 +1,13 @@
 #ifndef _PS_TYPE_H_
 #define _PS_TYPE_H_
 
+#define CCT (+8)  
+#define PI 3.1415926
+
+#define PID_P (-5.0)
+
+typedef long time_t;      /* time value */  
+
 struct GPS_MESSAGES{
 	double lat;
 	double lon;
