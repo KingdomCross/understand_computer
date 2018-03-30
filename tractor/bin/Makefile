@@ -1,6 +1,6 @@
 D_SRC=../src
-D_INC=-I../include/
-D_OBJ=./
+D_INC=-I ../include/
+D_OBJ=.
 TATGET=./main
 
 SRC_C= $(foreach dir, $(D_SRC), $(wildcard $(dir)/*.c))  
@@ -17,4 +17,4 @@ $(D_OBJ)/%.o:$(D_SRC)/%.c
 
 .PHONY: clean
 clean:
-	rm -f $(D_OBJ)/* $(TATGET)
+	rm -f $(D_OBJ)/*.o $(TATGET)
