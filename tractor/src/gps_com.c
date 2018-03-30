@@ -92,8 +92,8 @@ void gps_get_mes(char* buf_gps, int cur, struct GPS_MESSAGES* gps){
 		angular_Z_[k] = buf_gps[j];
 		j += 1;
 	}
-	gps->lat = *((double*)lat_) * 180 / pi; //纬度
-	gps->lon = *((double*)lon_) * 180 / pi; //经度
+	gps->lat = *((double*)lat_) * 180 / PI; //纬度
+	gps->lon = *((double*)lon_) * 180 / PI; //经度
 	gps->height = *((double*)height_); //海拔高度
 	gps->vel_n = *((float*)vel_n_); //北向速度
 	gps->vel_e = *((float*)vel_e_); //东向速度
@@ -102,12 +102,12 @@ void gps_get_mes(char* buf_gps, int cur, struct GPS_MESSAGES* gps){
 	gps->a_Y = *((float*)a_Y_); //载体加速度y
 	gps->a_Z = *((float*)a_Z_); //载体加速度z
 	gps->gForce = *((float*)gForce_); //重力加速度
-	gps->roll = *((float*)roll_) * 180 / pi;  //横滚
-	gps->pitch = *((float*)pitch_) * 180 / pi; //俯仰
-	gps->head = *((float*)head_) * 180 / pi; //航向
-	gps->angular_X = *((float*)angular_X_) * 180 / pi; //角加速度x
-	gps->angular_Y = *((float*)angular_Y_) * 180 / pi; //角加速度y
-	gps->angular_Z = *((float*)angular_Z_) * 180 / pi; //角加速度z
+	gps->roll = *((float*)roll_) * 180 / PI;  //横滚
+	gps->pitch = *((float*)pitch_) * 180 / PI; //俯仰
+	gps->head = *((float*)head_) * 180 / PI; //航向
+	gps->angular_X = *((float*)angular_X_) * 180 / PI; //角加速度x
+	gps->angular_Y = *((float*)angular_Y_) * 180 / PI; //角加速度y
+	gps->angular_Z = *((float*)angular_Z_) * 180 / PI; //角加速度z
 }
 
 /*
