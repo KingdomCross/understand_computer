@@ -4,6 +4,7 @@
 #include"../include/ctrl_com.h"
 #include"../include/write_files.h"
 
+
 int main(int argc, char **argv)
 {
     int fd_gps = 0, fd_ctrl = 0;
@@ -20,9 +21,24 @@ int main(int argc, char **argv)
 	
 	char buf_gps[READ_NUM];
 	int len_gps = 0;
-
+	
+	time_t rawtime;  
+  	struct tm * ptm;  
+  	time(&rawtime);  
+  	ptm = gmtime(&rawtime);  
+  	char file_name[100] = "../record/";
+  	sprintf (file_name + 10, "%2d%02d%02d%2d%02d%02d.txt", 
+  				ptm->tm_year + 1990,
+  				ptm->tm_mon + 1, 
+  				ptm->tm_mday,
+  				(ptm->tm_hour+CCT)%24, 
+  				ptm->tm_min, 
+  				ptm->tm_sec
+  				); 
+  				
+  	FILE* f = fopen(file_name,"w");
+	
 	unsigned char se_buf[1];
-	FILE* f = fopen("../record/record.txt","a");	
 	int count = 1;
 	while (1)
 	{
@@ -39,6 +55,9 @@ int main(int argc, char **argv)
 		}
 		usleep(40000);
 	}
+	
+	free(gps_msg);
+	free(ctrl_msg);
 	close(fd_gps);
 	close(fd_ctrl);  
 	fclose(f);
