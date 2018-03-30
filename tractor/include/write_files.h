@@ -6,9 +6,6 @@
 #include <time.h>
 #include"ps_type.h"
 
-#define CCT (+8)  
-
-typedef long time_t;      /* time value */  
 
 void write_file(struct GPS_MESSAGES* gps_msg, struct CTRL_MESSAGES* ctrl_msg, FILE* f);
 
