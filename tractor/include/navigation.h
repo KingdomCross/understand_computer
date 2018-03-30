@@ -7,7 +7,6 @@
 #include"ps_type.h"
 #include <math.h>
 
-#define pi 3.1415926
 #define DIS_LAT_LON 94344.5 // 111.1111*1000*cos(LAT)
 
 
