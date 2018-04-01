@@ -37,8 +37,9 @@ data1 = np.loadtxt('/home/dean/projects/understand_computer/DBSCAN/TEST_data/C0.
 # data2 = np.loadtxt('../DBSCAN_cluster/cluster_2.txt')
 
 # plot the first column as x, and second column as y
-plt.plot(data1[:, 0], data1[:, 1],'r.')
-
+plt.scatter(data1[:, 0], data1[:, 1], c = 'r', s = 1)
+plt.xlabel('x(m)')
+plt.ylabel('y(m)')
 #plt.xlim(0.0, 10.)
 
 plt.grid() # == plt.grid(True)
