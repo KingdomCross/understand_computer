@@ -8,15 +8,15 @@
 int main(int argc, char **argv)
 {
     int fd_gps = 0, fd_ctrl = 0;
-	fd_gps = dev_open("/dev/ttyS0");
-	fd_ctrl = dev_open("/dev/ttyS1");
+	fd_gps = dev_open("/dev/ttyUSB2");
+	fd_ctrl = dev_open("/dev/ttyUSB1");
 
 	struct GPS_MESSAGES* gps_msg = (struct GPS_MESSAGES*)malloc(sizeof(struct GPS_MESSAGES));
 	struct CTRL_MESSAGES* ctrl_msg;
 	
 	double endlat[3], endlon[3], endturn[3];
-	endlat[0] = 31.88668392, endlon[0] = 118.80989973, endturn[0] = 90;//0为起点，转角不起作用
-  	endlat[1] = 31.88664502, endlon[1] = 118.80960257, endturn[1] = 180.0;
+	endlat[0] = 31.887341, endlon[0] = 118.810513, endturn[0] = 270;//0为起点，转角不起作用
+  	endlat[1] = 31.886322, endlon[1] = 118.810592, endturn[1] = 180.0;
  	endlat[2] = 33.88722013, endlon[2] = 120.81050525, endturn[2] = 270.0;
 	
 	char buf_gps[READ_NUM];
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
   	struct tm * ptm;  
   	time(&rawtime);  
   	ptm = gmtime(&rawtime);  
-  	char file_name[100] = "../record/";
+  	char file_name[100] = "../record/002/";
   	sprintf (file_name + 10, "%2d%02d%02d%2d%02d%02d.txt", 
   				ptm->tm_year + 1990,
   				ptm->tm_mon + 1, 

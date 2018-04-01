@@ -55,7 +55,7 @@ struct CTRL_MESSAGES* navigation(struct GPS_MESSAGES* gps_msg, double endlat[], 
   
   printf("t_yaw: %f\tnowYaw%f\tdisToend: %f\n", t_yaw,yaw_now, disToend);	
   printf("yaw_error:%f\tdis_error:%f\n", yaw_error, dis_error);
-    
+  printf("longitude:%f\tdis_errorlatitude:%f\n", gps_msg->lon, gps_msg->lat); 
   if(ctrl_msg->steer < 60) ctrl_msg->steer = 60;
   if(ctrl_msg->steer > 120) ctrl_msg->steer = 120;
 	  

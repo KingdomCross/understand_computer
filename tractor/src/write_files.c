@@ -10,7 +10,7 @@ void write_file(struct GPS_MESSAGES* gps_msg, struct CTRL_MESSAGES* ctrl_msg, FI
   	ptm = gmtime(&rawtime);  
   	fprintf (f, "%2d\t%02d\t%02d\t", (ptm->tm_hour+CCT)%24, ptm->tm_min, ptm->tm_sec); 
 	
-	fprintf(f,"%.8lf\t%.8lf%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t", 
+	fprintf(f,"%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t%.8lf\t", 
 				gps_msg->lat, 
 				gps_msg->lon, 
 				gps_msg->height, 
