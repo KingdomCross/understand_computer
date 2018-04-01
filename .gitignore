@@ -9,6 +9,7 @@
 *classes*
 *pycache*
 main
+*.pyc
 
 
 
