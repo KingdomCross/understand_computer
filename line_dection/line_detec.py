@@ -4,6 +4,12 @@ import matplotlib.pyplot as pl
 import skimage.transform as st
 from skimage import feature
 
+file_out = './data/T2L5G05.txt'
+fout = open(file_out, 'w')
+
+file_out2 = './data/T2L5G05_min.txt'
+fout2 = open(file_out2, 'w')
+
 # PATH = './data/C0.400000'
 PATH = './data/obj1.txt'
 data = np.loadtxt(PATH)
@@ -23,12 +29,12 @@ for i in range(0, LEN):
 	XY[i,0], XY[i,1] = x, y
 # print(pic)
 # pic = feature.canny(pic, sigma=2, low_threshold=1, high_threshold=25)
-lines = st.probabilistic_hough_line(pic, threshold = 1, line_length= 2,line_gap = 10)
+lines = st.probabilistic_hough_line(pic, threshold = 2, line_length= 5,line_gap = 5)
 # print(lines)
 
 dminL = 100
 dminR = 100
-
+# pl.figure(figsize=(8,6), dpi=100)
 for line in lines:
     p0, p1 = line
     print(p0, p1)
@@ -38,6 +44,7 @@ for line in lines:
     b = y0 - k*x0
     print(k, b)
     pl. plot((x0, x1), (y0, y1), 'b--')
+    fout.write(str(x0) + '\t' + str(y0) + '\t' + str(x1) + '\t' +str(y1) + '\n')
     d = abs(b)  / (1 + k*k)**0.5
     print(d)
     if abs(k) < 0.05:
@@ -50,7 +57,7 @@ for line in lines:
     		xr0, xr1 = x0, x1
     		yr0, yr1 = y0, y1
     		dminR = d
-			
+fout2.write(str(xl0) + '\t' + str(yl0) + '\t' + str(xl1) + '\t' + str(yl1) + '\t' + str(xr0) + '\t' +str(yr0) + '\t' +	str(xr1) + '\t' + str(yr1) + '\n')	
 pl.plot((xl0, xl1), (yl0, yl1),'r')
 pl.plot((xr0, xr1), (yr0, yr1),'r')
 pl.plot(XY[:,0],XY[:,1] - 30, 'kx') 
@@ -59,4 +66,6 @@ pl.ylabel('y(m)')
 pl.grid() 
 pl.show()
 
+fout.close()
+fout2.close()
   
