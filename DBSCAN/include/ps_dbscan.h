@@ -14,14 +14,14 @@
 
 //#define INITIALASSIGN_COREOBJECT      100  
 //#define INCREASEMENT_COREOBJECT       100       
-#define INITIAL_ASSIGN_DIRECTLY_DENSITY_REACHABLE  100  
-#define INCREASEMENT_DIRECTLY_DENSITY_REACHABLE   10  
+#define INITIAL_ASSIGN_DIRECTLY_DENSITY_REACHABLE  7000  
+#define INCREASEMENT_DIRECTLY_DENSITY_REACHABLE   10000  
 
 
 static double neighborhood = 0.2;  
 static int MinPts = 3;  
 static char file_name[200] = "../TEST_data/C0.400000";  
-static int data_size = 333;  
+static int data_size = 7641;  
  
 static int size_of_core_object;  
 static ps_point_t* point;  
