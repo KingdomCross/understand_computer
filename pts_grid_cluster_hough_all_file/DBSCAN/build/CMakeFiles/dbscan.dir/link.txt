@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/dbscan.dir/src/list_file.c.o CMakeFiles/dbscan.dir/src/ps_dbscan.c.o CMakeFiles/dbscan.dir/src/ps_dbscan_func.c.o CMakeFiles/dbscan.dir/src/ps_queue.c.o  -o dbscan -lm 
