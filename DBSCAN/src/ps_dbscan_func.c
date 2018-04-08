@@ -47,7 +47,7 @@ void ps_read_data()
    int i;  
    for( i = 1; i <= data_size; i++ )  
    {  
-		if( 3 != fscanf(fread, "%lf%lf%lf", &point[i].x, &point[i].y, &point[i].r))  
+		if( 2 != fscanf(fread, "%lf%lf", &point[i].x, &point[i].y))  
         {  
         	printf("scanf error: %d\n", i);  
             exit(0);  
