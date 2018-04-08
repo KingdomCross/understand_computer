@@ -11,7 +11,7 @@ file_out2 = './data/T2L5G05_min.txt'
 fout2 = open(file_out2, 'w')
 
 # PATH = './data/C0.400000'
-PATH = './data/obj1.txt'
+PATH = './data/98.txt'
 data = np.loadtxt(PATH)
 # print(data)
 
@@ -29,7 +29,7 @@ for i in range(0, LEN):
 	XY[i,0], XY[i,1] = x, y
 # print(pic)
 # pic = feature.canny(pic, sigma=2, low_threshold=1, high_threshold=25)
-lines = st.probabilistic_hough_line(pic, threshold = 2, line_length= 5,line_gap = 5)
+lines = st.probabilistic_hough_line(pic, threshold = 1, line_length= 2,line_gap = 20)
 # print(lines)
 
 dminL = 100
