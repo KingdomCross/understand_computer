@@ -11,6 +11,8 @@
 main
 *.pyc
 */data/*
+*build*
+*/data*
 
 
 
