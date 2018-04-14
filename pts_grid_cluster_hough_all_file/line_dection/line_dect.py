@@ -17,31 +17,35 @@ for file in files:
 		print(PATH + file)
 		LEN = len(data)
 		# print(LEN)
-		pic = np.zeros([60,50], dtype = np.double)
+		pic = np.zeros([600,500], dtype = np.double)
 		XY = np.zeros([LEN,2],  dtype = np.int32)
 		for i in range(0, LEN):
-			x = int(data[i][0]*1)
-			y = int((data[i][1] + 30)*1)
+			x = int(data[i][0]*10)
+			y = int(((data[i][1])*10)+ 300)
+			if x >= 500:
+				x = 499
+			if y >= 600:
+				y = 599
 			pic[y][x] = 255
 			XY[i,0], XY[i,1] = x, y
 		# print(pic)	
 						
-		lines = st.probabilistic_hough_line(pic, threshold = 1, line_length= 2,line_gap = 25)
+		lines = st.probabilistic_hough_line(pic, threshold = 1, line_length= 20,line_gap = 250)
 		
-		dminL = 100
-		dminR = 100
+		dminL = 1000
+		dminR = 1000
 		Lstate = 0
 		Rstate = 0
 		
 		# print(lines)
 		for (p0, p1) in lines:
 			print(p0, p1)
-			x0, y0 = p0[0], p0[1] - 30
-			x1, y1 = p1[0], p1[1] - 30
+			x0, y0 = p0[0], p0[1] - 300
+			x1, y1 = p1[0], p1[1] - 300
 			# print(x0,y0,x1,y1)
 			if x1 - x0 == 0:
-				k = 99999
-				b = 0
+				k = 99999999
+				b = x0
 			else:
 				k = (y1 - y0)*1.0/(x1 - x0)
 				b = y0 - k*x0
@@ -81,7 +85,7 @@ for file in files:
 			pass
 						
 		
-		pl.plot(XY[:,0],XY[:,1] - 30, 'k.') 
+		pl.plot(XY[:,0],XY[:,1] - 300, 'k.') 
 		pl.xlabel('x') 
 		pl.ylabel('y')    
 		pl.grid() 
