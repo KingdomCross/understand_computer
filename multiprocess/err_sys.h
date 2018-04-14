@@ -5,6 +5,6 @@
 #include<stdlib.h>
 
 void err_sys(const char*);
-
+void err_quit(const char*);
 
 #endif
