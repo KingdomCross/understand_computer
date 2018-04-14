@@ -10,7 +10,7 @@ void pre_exit(int status)
 	pid_t pid;
 	
 	if(WIFEXITED(status))
-		printf("normal termination ,exit status = %d\n", WEXITSTATUS(status));
+		printf("normal termination, exit status = %d\n", WEXITSTATUS(status));
 	else if(WIFSIGNALED(status))
 		printf("abnormal termination, signal number = %d%s\n", WTERMSIG(status),
 #ifdef WCOREDUMP
