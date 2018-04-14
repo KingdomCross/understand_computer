@@ -8,12 +8,12 @@ import skimage.transform as st
 from skimage import feature
 import os
 
-PATH = '../data/cluster/004/'
+PATH = '../data/cluster/005/'
 
 folders = os.listdir(PATH)
 i = 0
 for folder in folders:
-		PATH = '../data/cluster/001/'
+		PATH = '../data/cluster/005/'
 		OUT_PATH = '../data/cluster_point/'
 		i =  i + 1
 		if not os.path.isdir(folder):
