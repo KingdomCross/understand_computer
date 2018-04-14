@@ -5,8 +5,8 @@
 
 int main()
 {
-	char OPEN_PATH[512] = "../../data/points/004/";
-	char OUT_PATH[512]  = "../../data/grid_filter/004/";
+	char OPEN_PATH[512] = "../../data/points/003/";
+	char OUT_PATH[512]  = "../../data/grid_filter/003/";
 	
 	
 	files_list_t* re_files_list = list_files(OPEN_PATH);

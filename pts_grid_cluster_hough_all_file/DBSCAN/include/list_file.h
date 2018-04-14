@@ -10,7 +10,7 @@
 #include <assert.h>  
 
 #define MAX_FILE_NAME_LEN 256  
-#define MAX_FILE_NUMBER 1024
+#define MAX_FILE_NUMBER 3000
 
 typedef struct files_list
 {

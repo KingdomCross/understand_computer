@@ -43,7 +43,7 @@ files_list_t* list_files(char *dir_name)
         else  
         {  
             // printf("%s\n",file_name->d_name);  
-            if(re_files_list->files_number > 1023)
+            if(re_files_list->files_number > MAX_FILE_NUMBER)
             	printf("files are greater than the MAX_FILE_NUMBER: %d\n", MAX_FILE_NUMBER);
             else
             {
