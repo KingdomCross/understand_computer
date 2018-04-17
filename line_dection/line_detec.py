@@ -4,6 +4,10 @@ import matplotlib.pyplot as pl
 import skimage.transform as st
 from skimage import feature
 
+# from matplotlib import rc
+#  rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+
+
 file_out = './data/T2L5G05.txt'
 fout = open(file_out, 'w')
 
@@ -11,7 +15,7 @@ file_out2 = './data/T2L5G05_min.txt'
 fout2 = open(file_out2, 'w')
 
 # PATH = './data/C0.400000'
-PATH = './data/obj1.txt'
+PATH = './data/obj.txt'
 data = np.loadtxt(PATH)
 # print(data)
 
@@ -24,6 +28,10 @@ XY = np.zeros([LEN,2],  dtype = np.int32)
 for i in range(0, LEN):
 	x = int((data[i][0] + 30)*10)
 	y = int(((data[i][1] + 30)*10))
+	if x >= 600:
+		x = 599
+	if y >= 600:
+		y = 599
 	pic[x][y] = 255
 	# print(x,y)
 	XY[i,0], XY[i,1] = x, y
