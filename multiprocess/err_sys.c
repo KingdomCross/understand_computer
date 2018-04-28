@@ -11,3 +11,9 @@ void err_quit(const	char* msg)
 	printf("%s\n", msg);
 	exit(0);
 }
+
+void err_exit(int err, const char* str)
+{
+	printf("%s\terr = %d\n", str, err);
+	exit(err);
+}
