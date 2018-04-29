@@ -16,6 +16,6 @@ typedef struct {
 void sbuf_init(sbuf_t *sp, int n);
 void sbuf_deinit(sbuf_t *sp);
 void sbuf_insert(sbuf_t *sp, int item);
-void sbuf_remove(sbuf_t *sp);
+int  sbuf_remove(sbuf_t *sp);
 
 #endif

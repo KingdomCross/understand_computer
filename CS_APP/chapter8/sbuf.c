@@ -1,4 +1,4 @@
-#include"subf.h"
+#include"sbuf.h"
 
 /* create an empty, bounded, shared FIFO buffer with n slots */ 
 void sbuf_init(sbuf_t *sp, int n)
@@ -31,7 +31,7 @@ void sbuf_insert(sbuf_t *sp, int item)
 
 
 /* remove and return the first item from buffer sp  */
-void sbuf_remove(sbuf_t *sp)
+int sbuf_remove(sbuf_t *sp)
 {
 	int item;
 	P(&sp->items); // wait for available item
@@ -39,4 +39,5 @@ void sbuf_remove(sbuf_t *sp)
 	item = sp->buf[(++sp->front)%(sp->n)]; // remove the item
 	V(&sp->mutex); // unlock the buffer
 	V(&sp->slots); // announce available slot 
+	return item;
 }
