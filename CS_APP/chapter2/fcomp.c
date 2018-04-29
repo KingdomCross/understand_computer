@@ -1,5 +1,6 @@
 
 #include<stdio.h>
+#include<stdlib.h>
 
 double recip(int denom)
 {
