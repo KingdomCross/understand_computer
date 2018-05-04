@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 		
 		update_kalman(R,update, pre, dis);
 		
-		printf("%.2f\t%.2f\t%.2f\n", dis, pre->Xk, update->X1k);
+		printf("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n", dis, pre->Xk, update->X1k, Q->q, R->r);
 		
 		++i;
 	}

@@ -33,13 +33,15 @@ void init_QR(struct Q_cor *Q, struct R_cor *R)
 
 void update_QR(struct Q_cor *Q, struct R_cor *R, float num1, float num2)
 {
-	Q->q = Q->q + (Q->avg - num1) * (Q->avg - num1);
-	Q->avg = ((Q->avg * Q->size) + num1) / (Q->size + 1);
 	Q->size++;
+	Q->q = (Q->q * (R->size - 1) + (Q->avg - num1) * (Q->avg - num1)) / Q->size;
+	Q->avg = ( (Q->avg * (Q->size -1) ) + num1 ) / (Q->size);
 	
-	R->r = R->r + (R->avg - num1) * (R->avg - num1);
-	R->avg = ((R->avg * R->size) + num1) / (R->size + 1);
+	
 	R->size++;
+	R->r = (R->r * (R->size - 1) + (R->avg - num2) * (R->avg - num2)) / R->size;
+	R->avg = ( (R->avg * (R->size - 1) ) + num2 ) / (R->size);
+	
 	
 }
 
