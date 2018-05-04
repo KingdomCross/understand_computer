@@ -7,8 +7,8 @@
 
 const static float T = 0.02;
 
-static float Q0 = 0.0;
-static float R0 = 0.0;
+static float Q0 = 0.10;
+static float R0 = 100.0;
 static float Xk0 = 100.0;
 static float Pk0 = 5.0;
 

@@ -28,11 +28,11 @@ int main(int argc, char* argv[])
 	while( i < loop ) {
 		tem = (rand()%32767 - 32767/2)*1.0/32767.0;
 		
-		if (i == 5)
+		if (i % 5 == 0  && i != 0)
 			tem = 33;
 		
 		predict_kalman(Q, pre, tem);
-		update_QR(Q, R, tem, tem);
+		// update_QR(Q, R, tem, tem);
 		
 		float dis = pre->Xk + tem;
 		
