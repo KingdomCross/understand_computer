@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"time"
 )
@@ -21,6 +22,23 @@ func trace(msg string) func() {
 	}
 }
 
+// 注意观察最后的值，defer在return之后执行
+func double(x int) int {
+	return x + x
+}
+func ps_double(x int) (result int) {
+	defer func() { fmt.Printf("double(%d) = %d\n", x, result) }()
+	return x + x
+}
+
+// 注意观察函数执行
+func triple(x int) (result int) {
+	defer func() { result += x }()
+	return ps_double(x)
+}
+
 func main() {
 	bigSlowOperation()
+	fmt.Println(ps_double(4))
+	fmt.Println(triple(4))
 }
