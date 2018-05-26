@@ -41,6 +41,8 @@ func main() {
 	ps_receiver_test001()
 	ps_receiver_test002()
 	ps_receiver_test003()
+	ps_receiver_test004()
+	ps_receiver_test005()
 }
 
 // Test 001
@@ -85,4 +87,44 @@ func ps_receiver_test003() {
 	p3 := Point{1, 2}
 	(&p3).ScaleBy(2)
 	fmt.Println(p3)
+}
+
+// Test 004
+func ps_receiver_test004() {
+	log.Printf("ps_receiver_test004")
+	
+	p := Point{1, 2}
+	q := Point{4, 6}
+	
+	distanceFromP := p.Distance
+	fmt.Println(distanceFromP(q))
+	var origin Point
+	fmt.Println(distanceFromP(origin))
+	
+	scaleP := p.ScaleBy
+	scaleP(2)
+	fmt.Println(p)
+	scaleP(3)
+	fmt.Println(p)
+	scaleP(10)
+	fmt.Println(p)
+	
+}
+
+// Test 005
+func ps_receiver_test005() {
+	log.Printf("ps_receiver_test005")
+	
+	p := Point{1, 2}
+	q := Point{4, 6}
+	
+	distance := Point.Distance
+	fmt.Println(distance(p, q))
+	fmt.Printf("%T\n", distance)
+	
+	scale := (*Point).ScaleBy
+	scale(&p, 2)
+	fmt.Println(p)
+	fmt.Printf("%T\n", scale)
+	
 }
