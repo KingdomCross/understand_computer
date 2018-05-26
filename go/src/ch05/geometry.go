@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math"
 )
 
@@ -31,13 +32,21 @@ func (path Path) Distance() float64 {
 	return sum
 }
 
+func (p *Point) ScaleBy(factor float64) {
+	p.X *= factor
+	p.Y *= factor
+}
+
 func main() {
 	ps_receiver_test001()
 	ps_receiver_test002()
+	ps_receiver_test003()
 }
 
 // Test 001
 func ps_receiver_test001() {
+	log.Printf("ps_receiver_test001")
+
 	p := Point{1, 2}
 	q := Point{3, 4}
 
@@ -47,6 +56,8 @@ func ps_receiver_test001() {
 
 // Test 002
 func ps_receiver_test002() {
+	log.Printf("ps_receiver_test002")
+
 	perim := Path{
 		{1, 1},
 		{5, 1},
@@ -54,4 +65,24 @@ func ps_receiver_test002() {
 		{1, 1},
 	}
 	fmt.Println(perim.Distance())
+}
+
+// Test 003
+func ps_receiver_test003() {
+	log.Printf("ps_receiver_test003")
+	// method 1
+	r := &Point{1, 2}
+	r.ScaleBy(2)
+	fmt.Println(*r)
+
+	// method 2
+	p := Point{1, 2}
+	pptr := &p
+	pptr.ScaleBy(2)
+	fmt.Println(p)
+
+	// method 3
+	p3 := Point{1, 2}
+	(&p3).ScaleBy(2)
+	fmt.Println(p3)
 }
