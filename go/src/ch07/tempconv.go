@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 )
 
 type Celsius float64
@@ -37,8 +38,14 @@ func (f *celsiusFlag) Set(s string) error {
 		f.Celsius = FToC(Fahrenheit(value))
 		return nil
 	case "K", "°K":
-		f.Celsius = Celsius(value) + AbsoluteZeroC
-		return nil
+		if value < 0 {
+			fmt.Printf("invalid tempetature %q\n", s)
+			os.Exit(1)
+		} else {
+			f.Celsius = Celsius(value) + AbsoluteZeroC
+			return nil
+		}
+		
 	}
 	return fmt.Errorf("invalid tempetature %q", s)
 }
