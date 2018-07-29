@@ -19,7 +19,7 @@ then
 	read answer
 	if [ $answer = 'yes' ]
 	then 
-		let line = line + 1
+		let line=line+1
 		CAT
 	fi
 fi
