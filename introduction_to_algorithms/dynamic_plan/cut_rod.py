@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/python3
 import math
 
 def cut_rod(price, length):
