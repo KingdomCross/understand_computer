@@ -1,4 +1,4 @@
-package DesignMode.TutorialOfFirst;
+package DesignMode.StrategyPattern;
 
 public abstract class Duck {
     FlyBehavior flyBehavior;

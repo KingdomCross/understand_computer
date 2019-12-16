@@ -1,4 +1,4 @@
-package DesignMode.TutorialOfFirst;
+package DesignMode.StrategyPattern;
 
 public class Quack implements QuackBehavior {
     public void quack() {

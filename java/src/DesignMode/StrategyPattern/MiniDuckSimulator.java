@@ -1,4 +1,4 @@
-package DesignMode.TutorialOfFirst;
+package DesignMode.StrategyPattern;
 
 public class MiniDuckSimulator {
     public static void main(final String[] args) {

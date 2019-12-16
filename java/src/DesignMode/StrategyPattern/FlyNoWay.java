@@ -1,4 +1,4 @@
-package DesignMode.TutorialOfFirst;
+package DesignMode.StrategyPattern;
 
 public class FlyNoWay implements FlyBehavior {
     public void fly() {

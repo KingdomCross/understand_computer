@@ -1,4 +1,4 @@
-package DesignMode.TutorialOfFirst;
+package DesignMode.StrategyPattern;
 
 public class MuteQuack implements QuackBehavior {
     public void quack() {
