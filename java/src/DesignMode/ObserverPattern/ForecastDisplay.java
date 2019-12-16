@@ -1,12 +1,10 @@
 package DesignMode.ObserverPattern;
 
 public class ForecastDisplay implements DisplayElement, Observer {
-    private Subject weatherData;
     float oldTemperature = (float) 0.0;
     float currentTemperature = (float) 0.0;
 
-    public ForecastDisplay(WeatherData weatheData) {
-        this.weatherData = weatheData;
+    public ForecastDisplay(Subject weatheData) {
         weatheData.registerObserver(this);
     }
 

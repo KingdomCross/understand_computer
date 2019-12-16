@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 public class StatisticsDisplay implements DisplayElement, Observer {
     private ArrayList<Float> temperatureList;
-    private Subject weatherData;
     private float minTemperature;
     private float maxTemperature;
     private float avgTemperature;
 
-    public StatisticsDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
+    public StatisticsDisplay(Subject weatherData) {
         weatherData.registerObserver(this);
 
         temperatureList = new ArrayList<>();
