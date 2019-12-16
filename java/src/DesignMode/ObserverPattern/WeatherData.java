@@ -3,7 +3,7 @@ package DesignMode.ObserverPattern;
 import java.util.ArrayList;
 
 public class WeatherData implements Subject {
-    private ArrayList<Observer> observers;
+    private final ArrayList<Observer> observers;
     private float temperature;
     private float humidity;
     private float pressure;
@@ -12,18 +12,19 @@ public class WeatherData implements Subject {
         observers = new ArrayList<>();
     }
 
-    public void registerObserver(Observer o) {
+    public void registerObserver(final Observer o) {
         observers.add(o);
     }
 
-    public void removeObserver(Observer o) {
-        if(!observers.remove(o)) {
+    public void removeObserver(final Observer o) {
+        if (!observers.remove(o)) {
             System.out.println("No this Observer");
-        };
+        }
+        ;
     }
 
     public void notifyObservers() {
-        for(Observer observer:observers) {
+        for (final Observer observer : observers) {
             observer.update(temperature, humidity, pressure);
         }
     }
@@ -32,7 +33,7 @@ public class WeatherData implements Subject {
         notifyObservers();
     }
 
-    public void setMeasurements(float temperature, float humidity, float pressure) {
+    public void setMeasurements(final float temperature, final float humidity, final float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
